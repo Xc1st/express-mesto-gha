@@ -72,7 +72,7 @@ module.exports.likeCard = (req, res, next) => {
     .orFail()
     .populate(['owner', 'likes'])
     .then((card) => {
-      res.status(HTTP_STATUS_OK).res.send(card);
+      res.status(HTTP_STATUS_OK).send(card);
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.DocumentNotFoundError) {
@@ -89,7 +89,7 @@ module.exports.dislikeCard = (req, res, next) => {
     .orFail()
     .populate(['owner', 'likes'])
     .then((card) => {
-      res.status(HTTP_STATUS_OK).res.send(card);
+      res.status(HTTP_STATUS_OK).send(card);
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.DocumentNotFoundError) {
