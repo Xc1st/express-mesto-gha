@@ -27,7 +27,4 @@ router.patch('/me/avatar', celebrate({
   }),
 }), editUserAvatar);
 
-router.get('/:userId', getUserById);
-router.patch('/me', editUser);
-router.patch('/me/avatar', editUserAvatar);
 module.exports = router;

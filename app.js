@@ -26,8 +26,7 @@ mongoose.connect(URL, {
   useUnifiedTopology: true,
 });
 
-app.use('/users', require('./routes/users'));
-app.use('/cards', require('./routes/cards'));
+app.use('/', require('./routes/index'));
 
 app.use(errors());
 app.use(handleError);
