@@ -10,13 +10,6 @@ module.exports.addCard = (req, res, next) => {
   Card.create({ name, link, owner: req.user._id })
     .then((data) => res.status(HTTP_STATUS_CREATED).send(data))
     .catch((error) => {
-      if (error instanceof mongoose.Error.DocumentNotFoundError) {
-        next(new NotFoundError('Карточка с данным _id не найдена'));
-      } else {
-        next(error);
-      }
-    })
-    .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
         next(new BadRequestError(error.message));
       } else {
